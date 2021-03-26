@@ -1,5 +1,6 @@
 const initialState = {
-  counter: 0
+  counter: 0,
+  results: []
 }
 
 const reducer = (currentState = initialState, action) => {
@@ -23,6 +24,14 @@ const reducer = (currentState = initialState, action) => {
       return {
         ...currentState,
         counter: currentState.counter - action.payload.value
+      }
+    case 'STORE_RESULT':
+      return {
+        ...currentState,
+        results: currentState.results.concat({
+          id: new Date(),
+          value: currentState.counter
+        }) // returns a new array, NOT use push
       }
     default:
       return currentState
