@@ -1,3 +1,5 @@
+import * as actionTypes from './actions'
+
 const initialState = {
   counter: 0,
   results: []
@@ -5,27 +7,27 @@ const initialState = {
 
 const reducer = (currentState = initialState, action) => {
   switch(action.type) {
-    case 'INCREMENT':
+    case actionTypes.INCREMENT:
       return {
         ...currentState,
         counter: currentState.counter + 1
       }
-    case 'DECREMENT':
+    case actionTypes.DECREMENT:
       return {
         ...currentState,
         counter: currentState.counter - 1
       }
-    case 'ADD':
+    case actionTypes.ADD:
       return {
         ...currentState,
         counter: currentState.counter + action.payload.value
       }
-    case 'SUBTRACT':
+    case actionTypes.SUBTRACT:
       return {
         ...currentState,
         counter: currentState.counter - action.payload.value
       }
-    case 'STORE_RESULT':
+    case actionTypes.STORE_RESULT:
       return {
         ...currentState,
         results: currentState.results.concat({
@@ -33,7 +35,7 @@ const reducer = (currentState = initialState, action) => {
           value: currentState.counter
         }) // returns a new array, NOT use push
       }
-    case 'DELETE_RESULT':
+    case actionTypes.DELETE_RESULT:
       // const id = 2;
       // const newArray = [...state.results]
       // newArray.slice(id, 1)
