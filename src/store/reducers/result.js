@@ -11,7 +11,7 @@ const reducer = (currentState = initialState, action) => {
         ...currentState,
         results: currentState.results.concat({
           id: new Date(),
-          value: currentState.counter
+          value: action.result
         }) // returns a new array, NOT use push
       }
     case actionTypes.DELETE_RESULT:
